@@ -1,0 +1,468 @@
+<style>
+.affiliate-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  background: linear-gradient(180deg, #0a0f1a 0%, #0d1525 100%);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.affiliate-wrapper * { box-sizing: border-box; }
+
+/* ===== TOP SLIDER ===== */
+.affiliate-slider {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 35px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+  cursor: pointer;
+}
+.affiliate-slides {
+  display: flex;
+  transition: transform 0.7s ease-in-out;
+}
+.affiliate-slide {
+  min-width: 100%;
+  height: 220px;
+}
+.affiliate-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.affiliate-slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+.affiliate-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.affiliate-dot.affiliate-active {
+  background: #ffd700;
+  transform: scale(1.25);
+}
+
+/* ===== TITLE ===== */
+.affiliate-section-title {
+  text-align: center;
+  margin: 10px 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffd700;
+  line-height: 1.4;
+}
+.affiliate-section-subtitle {
+  text-align: center;
+  margin-bottom: 35px;
+  font-size: 14px;
+  color: #a0aec0;
+}
+
+/* ===== PROJECT GRID ===== */
+.affiliate-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 50px;
+}
+.affiliate-card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,215,0,0.15);
+  border-radius: 18px;
+  padding: 26px 18px 22px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+.affiliate-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255,215,0,0.4);
+  box-shadow: 0 12px 40px rgba(255,215,0,0.15);
+}
+.affiliate-card-logo-link {
+  display: block;
+  margin: 0 auto 10px;
+  text-decoration: none;
+}
+.affiliate-card-logo {
+  width: 135px;
+  height: 135px;
+  object-fit: contain;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.25);
+  padding: 10px;
+  transition: transform 0.25s ease;
+}
+.affiliate-card-logo-link:hover .affiliate-card-logo {
+  transform: scale(1.06);
+}
+.affiliate-support-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 14px;
+  color: #29b6f6;
+  font-size: 13px;
+  text-decoration: none;
+  opacity: 0.9;
+}
+.affiliate-support-link:hover { opacity: 1; color: #4fc3f7; }
+.affiliate-support-link svg { width: 15px; height: 15px; }
+.affiliate-card-desc {
+  font-size: 13.5px;
+  color: #cbd5e0;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  min-height: 42px;
+}
+.affiliate-btn-signup {
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #f6c90e, #e6a800);
+  color: #111;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+.affiliate-btn-signup:hover {
+  background: linear-gradient(135deg, #ffd700, #f0b400);
+  transform: scale(1.04);
+}
+
+/* ===== INFINITE LOGO SLIDER ===== */
+.affiliate-logo-slider {
+  margin: 40px 0 20px;
+  overflow: hidden;
+  background: rgba(0,0,0,0.35);
+  border-radius: 14px;
+  padding: 18px 0;
+  border: 1px solid rgba(255,215,0,0.12);
+  position: relative;
+}
+.affiliate-logo-track {
+  display: flex;
+  gap: 40px;
+  animation: affiliate-scroll 28s linear infinite;
+  width: max-content;
+}
+.affiliate-logo-track:hover {
+  animation-play-state: paused;
+}
+.affiliate-logo-item {
+  height: 52px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));
+  transition: transform 0.25s;
+}
+.affiliate-logo-item:hover {
+  transform: scale(1.12);
+}
+@keyframes affiliate-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ===== CONTACT SECTION ===== */
+.affiliate-telegram-section {
+  margin-top: 40px;
+  padding: 45px 20px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border-radius: 22px;
+  border: 1px solid rgba(255,215,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+.affiliate-telegram-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.03) 0%, transparent 70%);
+  animation: affiliate-glow 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+@keyframes affiliate-glow {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30%, 20%); }
+}
+.affiliate-telegram-title {
+  text-align: center;
+  font-size: 23px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+.affiliate-telegram-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.affiliate-telegram-btn {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(0, 136, 204, 0.12);
+  border: 1px solid rgba(0, 168, 255, 0.3);
+  border-radius: 16px;
+  padding: 16px 22px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-width: 260px;
+  backdrop-filter: blur(8px);
+  position: relative;
+  overflow: hidden;
+}
+.affiliate-telegram-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transition: 0.5s;
+}
+.affiliate-telegram-btn:hover::after {
+  left: 100%;
+}
+.affiliate-telegram-btn:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 136, 204, 0.25);
+  border-color: rgba(0, 168, 255, 0.6);
+}
+.affiliate-fb-btn {
+  background: rgba(24, 119, 242, 0.12) !important;
+  border: 1px solid rgba(24, 119, 242, 0.35) !important;
+}
+.affiliate-fb-btn:hover {
+  background: rgba(24, 119, 242, 0.22) !important;
+  border-color: rgba(24, 119, 242, 0.7) !important;
+  box-shadow: 0 12px 30px rgba(24, 119, 242, 0.25) !important;
+}
+.affiliate-telegram-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.affiliate-telegram-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.affiliate-telegram-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.affiliate-telegram-btn-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 3px;
+}
+.affiliate-telegram-btn-sub {
+  font-size: 12.5px;
+  color: #a0aec0;
+}
+
+/* ===== FOOTER ===== */
+.affiliate-footer {
+  text-align: center;
+  margin-top: 35px;
+  padding: 18px 10px;
+  font-size: 13px;
+  color: #718096;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .affiliate-grid { grid-template-columns: repeat(2, 1fr); }
+  .affiliate-slide { height: 180px; }
+}
+@media (max-width: 600px) {
+  .affiliate-grid { grid-template-columns: 1fr; }
+  .affiliate-section-title { font-size: 19px; }
+  .affiliate-card-logo { width: 125px; height: 125px; }
+  .affiliate-slide { height: 150px; }
+  .affiliate-telegram-buttons { flex-direction: column; align-items: center; }
+  .affiliate-telegram-btn { width: 100%; max-width: 340px; }
+}
+</style>
+
+<div class="affiliate-wrapper">
+
+  <!-- TOP IMAGE SLIDER -->
+  <div class="affiliate-slider" id="affiliate-top-slider">
+    <div class="affiliate-slides" id="affiliate-slides">
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfOMNL1jDQ-syfQFqReau0fJhhT71KnKsH125-b_Hfi0tAl3jQpPwttX3MnYSi2yUVjLOAtoWZJDiOMwpJ3mm6x-4yMeAedU7wE2F6bbz_q0-Uc8QeaYKLC58qUtXOBSXqvexHJS6S5aEdsogGlSbwJrwkwxBHmtITj461ggsB_GD17KhR1_XJfogLtS0/s960/image_391585.jpg" alt="Slide 1"></div>
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmlWpxIme3dduVWdet1fbI9sV9YHW1sDTnasHOENkuytnkwMMWh-GST5avtecrxlJ-f_X8SWB5zZXM7G1MiwKrCHwdDPaGidgkBXWn27DcQiHINwPEntmNenRnC0g6KTohlyYaD3n38ZYH97e2D6wOZstIvD7Y8YGP8OfS6x8w2F2j9bFHRQhj55O-J2I/s960/aff-page-top-banner_BDT.jpg" alt="Slide 2"></div>
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFgCBrRITroMuADt1eQYx-rk0fT8h-wqFU0uavH2YKrF9t6UhYAq7v4ubO-zPIMNamGAWZcTb-P1H0srU2pl7u0d73TOs95olhOt4xleWWtiV8KaJRMYVIuwap0SFfgzaeWlVuSjDZ2S8Ur1Pz9q-XFKD-Eg-oFe_VbPyXkQP2Jbka1iBOhX0V6wSC_2Q/s960/Betvisa-top-banner_BAN.jpg" alt="Slide 3"></div>
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikOxcxKs-mXe-6wO0TKQpXrw-3w3cwCBmHOsVTa3jnlokVEqnAjsd0URi3e1M4CLg8ovBCYWNloOaC78INxUitLcRca5PgSGSd48H6MHyss6j_vKXuLZpc4jYPeytCk9asfIVrFhJt7oA6VPmsPRzpjIJLPsDaNB-HL5_279LJPvaLrnnB_gdekEqnLL0/s960/ca7ef8f7-6e1a-4a80-b65e-57f5ef317f70.png" alt="Slide 4"></div>
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0I3BzAY6F8tKklFFfyPMdYJaGXVAgxqbXbgM_qeJqUNDadFkXxpdLdicWg0Jwdwh_olsl1DDGH0EQC50dqYLR9kjGl8XkPmorZe3_cmErRzklTdia6hvMMwB0wQ761gBzD6Z2OLfTLXv_oaBQYFIqmsOpBzoRgJbFYokKak9pQkJm2-sjGSkx-i__vW4/s960/Top-web-Affiliate-50-Bengali.png" alt="Slide 5"></div>
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj40HMSAhzlV2vwFIZu6emkVOy0iiJQ047SaHftksYC7DMPon2J8opnr_7tSOHkXDWD85ZWJqRYRsYRiz2iB2s7ZduTVq3SJgiq8Yl3air4s7WOPFH4XcWCScsG03Bl5b_Wm0LmnK2BF3DjFYaznWQCvmvfk3y8i3xSDwVUt-1I-3EmfebwdijhGZt9__w/s960/project%20final.png" alt="Slide 6"></div>
+      <div class="affiliate-slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3Evt-LN7o6iIiMUm239bqL2c7FXAiX-6OWR7dbWCtUNTwTrNIhzpBOmgda31qBoMijFmjOIScfuiNlh4Ml1fP8dIJMB7SLuJpNIYceqtRu_CzFsYCgj5FezkDmnzKcdxQo0DoiYpa3quR-9s7Ov-JHYNkVhSFGXP_2Hw24l-rA9aH01eYZiWOTHrvWLw/s960/09b82851-3903-4e59-a91f-7d50c9ffde49.png" alt="Slide 7"></div>
+    </div>
+    <div class="affiliate-slider-dots" id="affiliate-dots"></div>
+  </div>
+
+  <!-- TITLE -->
+  <h2 class="affiliate-section-title">৭টি প্রজেক্টে কাজ করুন — সর্বোচ্চ ৬০% পর্যন্ত কমিশন আয়ের সুযোগ।</h2>
+  <p class="affiliate-section-subtitle">আপনার পছন্দের প্রজেক্ট বেছে নিন এবং এখনই শুরু করুন</p>
+
+  <!-- PROJECT CARDS -->
+  <div class="affiliate-grid" id="affiliate-projects-grid"></div>
+
+  <!-- INFINITE LOGO SLIDER -->
+  <div class="affiliate-logo-slider">
+    <div class="affiliate-logo-track" id="affiliate-logo-track"></div>
+  </div>
+
+  <!-- CONTACT SECTION -->
+  <div class="affiliate-telegram-section">
+    <h3 class="affiliate-telegram-title">📲 আমাদের সাথে যোগাযোগ করুন</h3>
+    <div class="affiliate-telegram-buttons">
+
+      <a href="https://t.me/AffSupportAgent" class="affiliate-telegram-btn" target="_blank" rel="noopener noreferrer">
+        <div class="affiliate-telegram-icon" style="color:#29b6f6;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+          </svg>
+        </div>
+        <div class="affiliate-telegram-text">
+          <span class="affiliate-telegram-btn-title">Telegram Channel</span>
+          <span class="affiliate-telegram-btn-sub">আমাদের অফিসিয়াল Telegram Channel</span>
+        </div>
+      </a>
+
+      <a href="https://t.me/+woSvyz8pKWlhOGRl" class="affiliate-telegram-btn" target="_blank" rel="noopener noreferrer">
+        <div class="affiliate-telegram-icon" style="color:#29b6f6;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+          </svg>
+        </div>
+        <div class="affiliate-telegram-text">
+          <span class="affiliate-telegram-btn-title">Support Telegram</span>
+          <span class="affiliate-telegram-btn-sub">সাপোর্টের জন্য Telegram-এ যোগাযোগ করুন</span>
+        </div>
+      </a>
+
+      <a href="https://www.facebook.com/profile.php?id=61593240359036" class="affiliate-telegram-btn affiliate-fb-btn" target="_blank" rel="noopener noreferrer">
+        <div class="affiliate-telegram-icon" style="color:#1877F2;">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </div>
+        <div class="affiliate-telegram-text">
+          <span class="affiliate-telegram-btn-title">Facebook Page</span>
+          <span class="affiliate-telegram-btn-sub">আমাদের অফিসিয়াল Facebook পেজ</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="affiliate-footer">© 2026 | সকল তথ্য সংশ্লিষ্ট প্রজেক্টের নিজস্ব প্রোগ্রাম অনুযায়ী</div>
+</div>
+
+<script>
+(function() {
+  const affiliateProjects = [
+    { name: "BETJILI", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkcQ3v968SOOTjhxcBFxXiUYnIEMMJ2dDqMrsfHgVd2xk78VPKfB6Vs3l5Cl4nv9kQKJwSN8pasXInr-_ikebOUfjfJOSx1yhrKLK5Qk8GC35LrIUCSWYNKNDpIx2-waUao0058Zq8yuLHnQ1dbBnUrqK7LlkHFBWa-46H5NguzLxhQKqQI1o70WwLHtg/s153/betjili-1.png", description: "মাসিক ৫০% ও সাপ্তাহিক ৪৫% পর্যন্ত কমিশন।", signup: "https://betjili11.vip/saf/690u8aoF" },
+    { name: "MOSTPLAY", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5wYTqIV8r8bEp59xy_qjLmtQMPN3Kl98tJMsIi19230BIQ8tWM3IEDhw0_yEP84ykfbZyydO2h45LCfPogq65Wwwdifd6VSBOcr7Hnud4xoIo1CR93eCUb6PYT1-ZUHF-YsIHrq5CNRO3kxMrAImW_VBgTZLv_foOnAehpCjSnxdafPGjLSEBurSHjCw/s148/mostplay-1.png", description: "৫০% পর্যন্ত কমিশন এবং ভারত-বাংলাদেশ-পাকিস্তান ফোকাসড।", signup: "https://mostplayipl.club/saf/Q4r0A44m" },
+    { name: "SBJ66", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhysdYlFM7Z5xtA4JX5YVwfUscC9fWcBM3jFDCA8mPALXy7iiI3zJIi6kSadEoJbGLnyOf4okfhklEpP5B2GtHsJqnBAbJ7z0ppD-u-6bW_9QE1wbf_Gn6QAAiYzTZ3dfvyZp9rEHR2cKjrzhaaBsDQ6Qhpzw9s5LKClU70fMGaHdkrxp9wdSiSX1SFK1Y/s161/SJB66.png", description: "ক্যাসিনো ও স্লটে ৫৫% পর্যন্ত কমিশন।", signup: "https://sbj66.fun/saf/d4Ll9WT2" },
+    { name: "DARAZPLAY", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLOfC_PMrIyfVRFH9eZNw24PTNiSVusYcWB3DiaPt-ZL71L2CTy4dskTgUcahyphenhyphenw-70g7-OoHhZ5HJSeWIp6y59EdPVg7-_bI7EL72U-mos93FfIAegOjSTEnykdGpmONRmYwiMsXWCBU2WCzpb1TTHpN686VhohXaIYOvTOI2FcSGvCDvsjK3dyWZGvoo/s160/darazplay.png", description: "সর্বোচ্চ ৬০% কমিশন এবং মাসে মাত্র ৫ জন Active Player থাকলেই কমিশন শুরু।", signup: "https://darazplay.online/saf/kXvM9k6i" },
+    { name: "BETJDB", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi6vdnoaoaPU483DD7fWPF1Men13_lgPBU2MpsWzIis-JcZpXlgRMHIpuETpmwM9lVeEz9fgt-wN_RzXNlIWEEEmFGP7-W5FM4R7AFNtjW6OhESvTk9_SreYOCDrfBwsRuLOgXlUcE0d00TIfKyvI9YcddANwUaG6ZoSOo3FfKgFXBdX_8Zcer_0fGuPYw/s161/betjdb.png", description: "৪০% কমিশন, সাপ্তাহিক পেমেন্ট এবং এক্সট্রা ক্যাশ বোনাস।", signup: "https://betjdb.net/saf/b81lQ4Yw" },
+    { name: "BETVISA", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGY4ET02ccIONOe9G___unuuOGanOvJTpn4ifuJ_21hyphenhyphenwumV-oHk5rHHF8OcZeFFrfiSqgQU_-I1bLI6nkHRVxpodeszoapJAUG07SLXW4gOnJY9QgEQHpPNKVo1ucUp2I6JLClb9xwIkUg865e7WbYL5x6ueB4DINwPZ0t5F1pc2Wb7W4ew6erFFQS50/s161/betvisa.png", description: "৫০% কমিশন, ফাস্ট পেআউট এবং ২৪/৭ সাপোর্ট।", signup: "https://betvisafun.com/saf/WWa7uoma" },
+    { name: "JEETWAY", logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcqq43dj6v5BDq7A67u6I5qB1QMGaPiEg07zhTCRH2JG8GFSYaqXqUf-zR2CYGN2Qup35Y6vH9xealztDRYJQFOzygswYN9EVIkU2dVxcpZ3nPwbwey7NavXHeam3LHU7vlJ8GzR8oHeWz6MiJJbU53HM6UsHzvoerx7eqfL8zzX1P-S_OdFbrEzx9fPo/s160/jeetway.png", description: "৫০% পর্যন্ত মাসিক কমিশন এবং এক্সট্রা বোনাস।", signup: "https://jeetwayaffiliate.com/saf/Th21lHTe" }
+  ];
+
+  // Render Project Cards
+  const grid = document.getElementById('affiliate-projects-grid');
+  affiliateProjects.forEach(function(p) {
+    const card = document.createElement('div');
+    card.className = 'affiliate-card';
+    card.innerHTML = `
+      <a class="affiliate-card-logo-link" href="${p.signup}" target="_blank" rel="noopener noreferrer">
+        <img class="affiliate-card-logo" src="${p.logo}" alt="${p.name}">
+      </a>
+      <a class="affiliate-support-link" href="https://t.me/BVaffiliate_support" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
+        সাপোর্ট
+      </a>
+      <div class="affiliate-card-desc">${p.description}</div>
+      <a class="affiliate-btn-signup" href="${p.signup}" target="_blank" rel="noopener noreferrer">সাইন আপ</a>
+    `;
+    grid.appendChild(card);
+  });
+
+  // Infinite Logo Slider
+  const track = document.getElementById('affiliate-logo-track');
+  const logosHTML = affiliateProjects.map(p => `<img class="affiliate-logo-item" src="${p.logo}" alt="${p.name}">`).join('');
+  track.innerHTML = logosHTML + logosHTML;
+
+  // Top Banner Slider
+  const slides = document.getElementById('affiliate-slides');
+  const dotsContainer = document.getElementById('affiliate-dots');
+  const totalSlides = 7;
+  let current = 0;
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'affiliate-dot' + (i === 0 ? ' affiliate-active' : '');
+    dot.addEventListener('click', function(e) {
+      e.stopPropagation();
+      goToSlide(i);
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  function goToSlide(index) {
+    current = index;
+    slides.style.transform = `translateX(-${current * 100}%)`;
+    document.querySelectorAll('.affiliate-dot').forEach((d, i) => {
+      d.classList.toggle('affiliate-active', i === current);
+    });
+  }
+
+  setInterval(function() {
+    current = (current + 1) % totalSlides;
+    goToSlide(current);
+  }, 4000);
+
+  // Click slider → scroll to projects
+  document.getElementById('affiliate-top-slider').addEventListener('click', function() {
+    document.getElementById('affiliate-projects-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
