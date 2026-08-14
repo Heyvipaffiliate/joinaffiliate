@@ -13,7 +13,7 @@
       color: #ffffff;
       overflow-x: hidden;
     }
-    /* ===== MOVING THEME BACKGROUND (More Visible) ===== */
+    /* ===== MOVING THEME BACKGROUND ===== */
     .moving-bg {
       position: fixed;
       top: 0;
@@ -157,7 +157,7 @@
       box-shadow: 0 14px 32px rgba(255,215,0,0.15), 0 6px 20px rgba(0,0,0,0.4);
       background: rgba(255,255,255,0.07);
     }
-    /* ===== LOGO BOX (only this has brand color) ===== */
+    /* ===== LOGO BOX ===== */
     .affiliate-card-logo-link {
       display: flex;
       align-items: center;
@@ -171,7 +171,6 @@
       box-shadow: 0 4px 14px rgba(0,0,0,0.4);
       border: 1px solid rgba(255,215,0,0.25);
     }
-    /* Brand colors only for the logo box */
     .logo-betjili   { background: #0a0a0a; }
     .logo-mostplay  { background: #0c2d6b; }
     .logo-sbj66     { background: #0a2e1a; }
@@ -255,28 +254,33 @@
       0% { transform: translateX(0); }
       100% { transform: translateX(-50%); }
     }
-    /* ===== PREMIUM VIDEO SECTION ===== */
-    .premium-video-section {
+
+    /* ===== SIDE BY SIDE: VIDEO + FOLLOW ===== */
+    .bottom-section {
+      display: flex;
+      gap: 30px;
       margin: 32px 0 40px;
+      align-items: center;
+    }
+    .premium-video-section {
+      flex: 1.5;
       text-align: center;
     }
     .premium-video-title {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: #ffd700;
       margin-bottom: 6px;
       text-shadow: 0 0 16px rgba(255,215,0,0.35);
     }
     .premium-video-subtitle {
-      font-size: 14px;
+      font-size: 13px;
       color: #a0aec0;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
     .premium-video-wrapper {
       position: relative;
       width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
       border-radius: 18px;
       overflow: hidden;
       border: 1.5px solid rgba(255, 215, 0, 0.35);
@@ -302,64 +306,69 @@
       border-radius: 16px;
       background: #000;
     }
-    /* ===== CONTACT (Follow) ===== */
-    .affiliate-telegram-section {
-      margin-top: 38px;
-      padding: 36px 20px;
-      background: rgba(255,255,255,0.03);
-      border-radius: 20px;
-      border: 1px solid rgba(255,215,0,0.14);
-      backdrop-filter: blur(6px);
-    }
-    .affiliate-telegram-title {
-      text-align: center;
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 28px;
-      color: #ffd700;
-    }
-    .affiliate-telegram-buttons {
+
+    /* FOLLOW SECTION - No box, clean */
+    .follow-section {
+      flex: 0.8;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
+      gap: 22px;
     }
-    .affiliate-telegram-btn {
+    .follow-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffd700;
+      text-shadow: 0 0 12px rgba(255,215,0,0.3);
+    }
+    .follow-icons {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .follow-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .follow-item:hover {
+      transform: translateY(-4px);
+    }
+    .follow-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(0, 136, 204, 0.12);
-      border: 1px solid rgba(0, 168, 255, 0.3);
-      border-radius: 14px;
-      padding: 16px 28px;
-      text-decoration: none;
-      color: #ffffff;
-      min-width: 120px;
+      border: 1.5px solid rgba(255,255,255,0.25);
       transition: all 0.3s ease;
     }
-    .affiliate-telegram-btn:hover {
-      transform: translateY(-4px);
-      border-color: rgba(0, 168, 255, 0.55);
-      box-shadow: 0 8px 22px rgba(0,136,204,0.2);
+    .follow-item:hover .follow-icon {
+      border-color: rgba(255,215,0,0.5);
+      box-shadow: 0 0 18px rgba(255,215,0,0.2);
     }
-    .affiliate-fb-btn {
-      background: rgba(24, 119, 242, 0.12) !important;
-      border: 1px solid rgba(24, 119, 242, 0.35) !important;
+    .follow-icon.telegram {
+      background: rgba(0, 136, 204, 0.15);
     }
-    .affiliate-fb-btn:hover {
-      border-color: rgba(24, 119, 242, 0.6) !important;
-      box-shadow: 0 8px 22px rgba(24,119,242,0.2) !important;
+    .follow-icon.facebook {
+      background: rgba(24, 119, 242, 0.15);
     }
-    .affiliate-telegram-icon {
-      width: 42px;
-      height: 42px;
-      flex-shrink: 0;
+    .follow-icon svg {
+      width: 30px;
+      height: 30px;
     }
-    .affiliate-telegram-icon svg {
-      width: 100%;
-      height: 100%;
+    .follow-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #e2e8f0;
     }
-    /* ===== FLOATING SUPPORT TELEGRAM ===== */
+
+    /* ===== FLOATING SUPPORT ===== */
     .floating-support {
       position: fixed;
       bottom: 24px;
@@ -431,6 +440,17 @@
       border-top: 1px solid rgba(255,255,255,0.07);
     }
     /* ===== MOBILE ===== */
+    @media screen and (max-width: 900px) {
+      .bottom-section {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .premium-video-section,
+      .follow-section {
+        flex: none;
+        width: 100%;
+      }
+    }
     @media screen and (max-width: 768px) {
       .affiliate-grid {
         grid-template-columns: 1fr !important;
@@ -444,14 +464,6 @@
       }
       .affiliate-slide img {
         max-height: 200px !important;
-      }
-      .affiliate-telegram-buttons {
-        flex-direction: row !important;
-        justify-content: center !important;
-      }
-      .affiliate-telegram-btn {
-        min-width: 100px !important;
-        padding: 14px 22px !important;
       }
       .premium-video-title { font-size: 17px !important; }
       .premium-video-subtitle { font-size: 13px !important; }
@@ -479,10 +491,9 @@
   </style>
 </head>
 <body>
-  <!-- Moving Background -->
   <div class="moving-bg"></div>
 
-  <!-- FLOATING SUPPORT TELEGRAM -->
+  <!-- FLOATING SUPPORT -->
   <a href="https://t.me/+woSvyz8pKWlhOGRl" class="floating-support" target="_blank" rel="noopener noreferrer">
     <div class="floating-support-icon-wrap">
       <svg class="telegram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -522,37 +533,46 @@
       <div class="affiliate-logo-track" id="affiliate-logo-track"></div>
     </div>
 
-    <!-- ===== PREMIUM VIDEO (after logo slider) ===== -->
-    <div class="premium-video-section">
-      <div class="premium-video-title">🏆 Official Brand Ambassador</div>
-      <div class="premium-video-subtitle">Dale Steyn × HeyVIP</div>
-      <div class="premium-video-wrapper">
-        <video 
-          src="https://hey.vip/wp-content/uploads/2026/07/HEYVIP-STEYN-V1_13062026.mp4" 
-          autoplay 
-          muted 
-          loop 
-          playsinline 
-          controls>
-          Your browser does not support the video tag.
-        </video>
+    <!-- ===== SIDE BY SIDE: VIDEO + FOLLOW ===== -->
+    <div class="bottom-section">
+      <!-- VIDEO -->
+      <div class="premium-video-section">
+        <div class="premium-video-title">🏆 Official Brand Ambassador</div>
+        <div class="premium-video-subtitle">Dale Steyn × HeyVIP</div>
+        <div class="premium-video-wrapper">
+          <video 
+            src="https://hey.vip/wp-content/uploads/2026/07/HEYVIP-STEYN-V1_13062026.mp4" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            controls>
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
-    </div>
 
-    <!-- FOLLOW SECTION -->
-    <div class="affiliate-telegram-section">
-      <h3 class="affiliate-telegram-title">অনুসরণ করুন</h3>
-      <div class="affiliate-telegram-buttons">
-        <a href="https://t.me/AffSupportAgent" class="affiliate-telegram-btn" target="_blank" rel="noopener noreferrer" title="Telegram Channel">
-          <div class="affiliate-telegram-icon" style="color:#29b6f6;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/></svg>
-          </div>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61593240359036" class="affiliate-telegram-btn affiliate-fb-btn" target="_blank" rel="noopener noreferrer" title="Facebook Page">
-          <div class="affiliate-telegram-icon" style="color:#1877F2;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          </div>
-        </a>
+      <!-- FOLLOW (clean, no box) -->
+      <div class="follow-section">
+        <div class="follow-title">অনুসরণ করুন</div>
+        <div class="follow-icons">
+          <a href="https://t.me/AffSupportAgent" class="follow-item" target="_blank" rel="noopener noreferrer">
+            <div class="follow-icon telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#29b6f6">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+              </svg>
+            </div>
+            <span class="follow-label">Telegram</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61593240359036" class="follow-item" target="_blank" rel="noopener noreferrer">
+            <div class="follow-icon facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#1877F2">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </div>
+            <span class="follow-label">Facebook</span>
+          </a>
+        </div>
       </div>
     </div>
 
@@ -572,7 +592,7 @@
     { 
       name: "MOSTPLAY", 
       logo: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5wYTqIV8r8bEp59xy_qjLmtQMPN3Kl98tJMsIi19230BIQ8tWM3IEDhw0_yEP84ykfbZyydO2h45LCfPogq65Wwwdifd6VSBOcr7Hnud4xoIo1CR93eCUb6PYT1-ZUHF-YsIHrq5CNRO3kxMrAImW_VBgTZLv_foOnAehpCjSnxdafPGjLSEBurSHjCw/s148/mostplay-1.png", 
-      description: "৫০% পর্যন্ত কমিশন।", 
+      description: "৫০% পর্যন্ত কমিশন এবং ভারত-বাংলাদেশ-পাকিস্তান ফোকাসড।", 
       signup: "https://mostplayipl.club/saf/Q4r0A44m",
       logoClass: "logo-mostplay"
     },
